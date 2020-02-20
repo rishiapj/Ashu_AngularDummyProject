@@ -1,0 +1,28 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a  class="navbar-brand" routerLink="/">My Kart</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+       
+        <li *ngIf="userloggedin" class="nav-item ">
+          <a routerLink="/addproduct" class="nav-link" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+           Add Product
+          </a> 
+        </li>
+       
+      </ul>
+      <div *ngIf="!userloggedin" class="form-inline my-2 my-lg-0">
+        <button routerLink="/login"  class="btn btn-success my-2 my-sm-0" type="submit">Login</button>
+        <button routerLink="/signup"  class="btn btn-success my-2 my-sm-0" type="submit">Singup</button>
+        
+      </div>
+      <div *ngIf="userloggedin" class="form-inline my-2 my-lg-0">
+        <button (click)="logout()" routerLink="/"  class="btn btn-warning my-2 my-sm-0" type="submit">Logout</button>
+        <button routerLink="/cart"  class="btn btn-warning my-2 my-sm-0" type="submit">Cart</button>
+        
+      </div>
+    </div>
+  </nav>
